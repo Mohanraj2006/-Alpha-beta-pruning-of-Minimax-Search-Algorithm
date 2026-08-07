@@ -1,34 +1,155 @@
-<h1>ExpNo 7 : Implement Alpha-beta pruning of Minimax Search Algorithm for a Simple TIC-TAC-TOE game</h1> 
-<h3>Name:       </h3>
-<h3>Register Number/Staff Id:           </h3>
+# BREADTH-FIRST-SEARCH
+<h1>ExpNo 3 : Implement Breadth First Search Traversal of a Graph</h1> 
+<h3>Name: MOHAN RAJ C  </h3>
+<h3>Register Number: 212223040114 </h3>
 <H3>Aim:</H3>
-<p>
-Implement Alpha-beta pruning of Minimax Search Algorithm for a Simple TIC-TAC-TOE game
+<p>To Implement Breadth First Search Traversal of a Graph using Python 3.</p>
+<h3>Theory:</h3>
+<p>Breadth-First Traversal (or Search) for a graph is like the Breadth-First Traversal of a tree.
+The only catch here is that, unlike trees, graphs may contain cycles so that we may come to the same node again. To avoid processing a node more than once, we divide the vertices into two categories:
+<ol><li>Visited</li>
+<li>Not Visited</li></ol>
 </p>
-<h1>GOALS of Alpha-Beta Pruning in MiniMax Search Algorithm</h1>
+<p>A Boolean visited array is used to mark the visited vertices. For simplicity, it is assumed that all vertices are reachable from the starting vertex. BFS uses a queue data structure for traversal.</p>
+<p><strong>How does BFS work?</strong><br>
+  Starting from the root, all the nodes at a particular level are visited first, and then the next level nodes are traversed until all the nodes are visited.
+To do this, a queue is used. All the adjacent unvisited nodes of the current level are pushed into the queue, and the current-level nodes are marked visited and popped from the queue.
+Illustration:
+Let us understand the working of the algorithm with the help of the following example.
+Step1: Initially queue and visited arrays are empty.
+</p>
 
-<h3>Improve the decision-making efficiency of the computer player by reducing the number of evaluated nodes in the game tree.</h3>
-<h3>Tic-Tac-Toe game implementation incorporating the Alpha-Beta pruning and the Minimax algorithm with Python Code.</h3>
-<h1>IMPLEMENTATION</h1>
+![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/8acdebf8-ecc2-4d10-a208-45cce441f059)
 
-The project involves developing a Tic-Tac-Toe game implementation incorporating the Alpha-Beta pruning with the Minimax algorithm. Using this algorithm, the computer player analyzes the game state, evaluates possible moves, and selects the optimal action based on the anticipated outcomes.
 
-<h1>The Minimax algorithm</h1>
+Queue and visited arrays are empty initially.
+Step2: Push node 0 into queue and mark it visited.
 
-recursively evaluates all possible moves and their potential outcomes, creating a game tree.
+![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/0e9ce012-8e1f-43d7-b7b9-c0fb19fe0c3f)
 
-<h1>Alpha-Beta pruning</h1>
 
-Alpha–Beta (𝛼−𝛽) algorithm is actually an improved minimax using a heuristic. It stops evaluating a move when it makes sure that it’s worse than a previously examined move. Such moves need not to be evaluated further.
+Push node 0 into queue and mark it visited.
+Step 3: Remove node 0 from the front of queue and visit the unvisited neighbours and push them into queue.
 
-When added to a simple minimax algorithm, it gives the same output but cuts off certain branches that can’t possibly affect the final decision — dramatically improving the performance
+![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/67d8fa3b-ce9e-46c2-9dd7-089e204e667a)
+
+Step 4: Remove node 1 from the front of queue and visit the unvisited neighbours and push them into queue.
+
+![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/b0cf0fde-8a86-41cb-a054-36875ac24ab0)
+
+Step 5: Remove node 2 from the front of queue and visit the unvisited neighbours and push them into queue.
+
+![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/8968a163-6b3a-4f7e-8ad4-bbf24f326b9b)
+
+Step 6: Remove node 3 from the front of queue and visit the unvisited neighbours and push them into queue. 
+As we can see that every neighbours of node 3 is visited, so move to the next node that are in the front of the queue.
+
+![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/7a1c1b16-ea69-497f-a099-8440200f6dc0)
+
+Steps 7: Remove node 4 from the front of queue and visit the unvisited neighbours and push them into queue. 
+As we can see that every neighbours of node 4 are visited, so move to the next node that is in the front of the queue.
+
+![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/8e16ffa3-c3d6-4774-822b-6eb84adedad9)
+
+Remove node 4 from the front of queue and visit the unvisited neighbours and push them into queue.
+Now, Queue becomes empty, So, terminate these process of iteration.
+
+
 <hr>
-<h2>Sample Input and Output:</h2>
+<h2>Algorithm:</h2>
+<hr>
+<ol>
+  <li>Construct a Graph with Nodes and Edges</li>
+ <li>Breadth First Uses Queue and iterates through the Queue for Traversal.</li>
+  <li>Insert a Start Node into the Queue.</li>
+<li>Find its Successors Or neighbors and Check whether the node is visited or not.</li>
+<li>If Not Visited, add it to the Queue. Else Continue.</li>
+<li>Iterate steps 4 and 5 until all nodes get visited, and there are no more unvisited nodes.</li>
 
-![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/8d5e329a-9aff-41a6-bcf0-46efa10e1b92)
-![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/438b242d-54ba-443e-b040-a936e6ae3b55)
-![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/99a33390-fa11-4ade-a19f-e93bcd7aaec9)
-![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/440797bd-53cb-49c1-b18d-89776864c3e7)
-![image](https://github.com/natsaravanan/19AI405FUNDAMENTALSOFARTIFICIALINTELLIGENCE/assets/87870499/81575a16-26b2-46f1-a8ac-27c9ed0a0fe5)
+</ol>
+
+<hr>
+
+<h3>Program </h3>h3>
+
+```
+from collections import deque
+from collections import defaultdict
+def bfs(graph,start,visited,path):
+    queue = deque()
+    path.append(start)
+    queue.append(start)
+    visited[start] = True
+    while len(queue) != 0:
+        tmpnode = queue.popleft()
+        for neighbour in graph[tmpnode]:
+            if visited[neighbour] == False:
+                path.append(neighbour)
+                queue.append(neighbour)
+                visited[neighbour] = True
+    return path
+
+graph = defaultdict(list)
+v,e = map(int,input().split())
+for i in range(e):
+    u,v = map(str,input().split())
+    graph[u].append(v)
+    graph[v].append(u)
+
+start = 'A'
+path = []
+visited = defaultdict(bool)
+traversedpath = bfs(graph,start,visited,path)
+print(traversedpath)
+
+```
+
+<h3>Sample Input</h3>
+<hr>
+7 9 <BR>
+A B <BR>
+A C <BR>
+A F <BR>
+C E <BR>
+C F <BR>
+C D <BR>
+D E <BR>
+D G <BR>
+G F <BR>
+<hr>
+<h3>Sample Output</h3>
+<hr>
+['A', 'B', 'C', 'F', 'E', 'D', 'G']
+
+<hr>
+
+<hr>
+<h3>Sample Input</h3>
+<hr>
+5 6 <BR>
+0 1 <BR>
+0 2 <BR>
+1 2 <BR>
+1 3 <BR>
+2 4 <BR>
+3 4 <BR>
+<hr>
+<h3>Sample Output</h3>
+<hr>
+['0', '1', '2', '3', '4']
+<hr>
+<h3>Result:</h3>
+
+<img width="1032" height="313" alt="image" src="https://github.com/user-attachments/assets/50578ab8-0163-40ee-abc1-8318768d3ee7" />
+
+<img width="1610" height="206" alt="image" src="https://github.com/user-attachments/assets/2491e043-8487-4746-b936-d4bd5e911079" />
+
+<hr>
+<p>Thus,a Graph was constructed and implementation of Breadth First Search for the same graph was done successfully.</p>
+
+
+
+
+
 
 
